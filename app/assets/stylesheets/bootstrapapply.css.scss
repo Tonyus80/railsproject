@@ -1,0 +1,73 @@
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "rails_bootstrap_forms";
+@import "bootstrap";
+
+#login_jumbo,  #signup_jumbo {
+  margin-top: 3em;
+  margin-left: 7em;
+  margin-right: 7em;
+}
+
+
+//articles buttons custom setting
+.btn-btn-outline-dark-btn-lg{
+
+  margin-left: 12em;
+}
+
+
+.article-meta-details {
+
+  border-top: 1px solid #eaeaea;
+
+  margin-top: 25px;
+}
+
+///Article list title
+
+
+
+//Draw a line on the footer
+footer {
+
+  margin-top: 45px;
+
+  padding-top: 5px;
+
+  border-top: 3px solid #eaeaea;
+
+  color: #777;
+
+}
+
+footer a:hover {
+
+  color: #222;
+
+}
+
+.openweathermap{
+
+  border-top: 1px solid #eaeaea;
+
+  margin-top: 25px;
+  float: right;
+}
+
+
+footer ul {
+
+  float: right;
+
+  list-style: none;
+
+}
+
+footer ul li {
+
+  float: left;
+
+  margin-left: 15px;
+
+}

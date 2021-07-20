@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to MediCare</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <div class="jumbotron">
+    <h1 class="display-4">MediCare!</h1>
+
+  </div>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+<div class="overlay"></div>
+
+<div class="masthead" data-turbolinks="false">
+  <div class="masthead-bg"></div>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-12 my-auto">
+        <div class="masthead-content text-white py-5 py-md-0">
+          <!--Link to custom image --->
+          <%= link_to image_tag("healthcare.jpg", :class => "img-fluid"), "/" %>
+          <div class="row"><br></div>
+          <%= yield %>
+          <div class="container">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

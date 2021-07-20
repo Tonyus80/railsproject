@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-07-15 02:51:21
+  comment: MyText
+  visited: false
+  user: one
+  patient: one
+
+two:
+  date: 2021-07-15 02:51:21
+  comment: MyText
+  visited: false
+  user: two
+  patient: two

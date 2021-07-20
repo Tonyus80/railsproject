@@ -1,0 +1,2 @@
+module Landingpage::IndexHelper
+end

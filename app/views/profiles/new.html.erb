@@ -1,0 +1,10 @@
+<hr class="colorgraph">
+  <div class="jumbotron" id="signup_jumbo">
+
+      <h2 style= "text-align: center">Creating profile <b><%= current_user.email.split('@')[0] %></h2><br>
+
+      <%= render 'form', profile: @profile %>
+      <%= link_to 'Back', profiles_path %>
+
+  </div>
+<hr class="colorgraph">

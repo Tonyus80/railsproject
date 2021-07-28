@@ -1,4 +1,6 @@
 require "test_helper"
+#Testing custom gem
+require 'Profano'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +18,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create article" do
-    assert_difference('Article.count') do
+    assert_difference('Article.count', 1) do
       post articles_url, params: { article: { description: @article.description, title: @article.title } }
     end
 

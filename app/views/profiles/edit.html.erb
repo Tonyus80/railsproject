@@ -1,6 +1,5 @@
-
 <div class="container">
-  <div class="jumbotron">
+  <div class="jumbotron" id="custom_jumbo">
     <div class="row">
       <div class="col-md-12">
         <div class="container" >
@@ -8,15 +7,28 @@
             Editing Profile
           </h2>
         </div>
-        <hr class="colorgraph">
+        <hr class="graphcolor">
         <ul class="container details">
           <%= render 'form', profile: @profile %>
         </ul>
       </div>
     </div>
-    <hr class="colorgraph">
+    <hr class="graphcolor">
+
+    <div class="form-actions">
+      <div style="display: flex; float: left;">
+        <%= link_to 'Back', profiles_path, class: "btn btn-dark btn-m" %>
+      </div>
+      <div style="display: flex; float: left;">
+        <%= link_to 'Show', @profile , class: "btn btn-dark btn-m" %>
+      </div>
+    </div>
+
+
 
   </div>
 </div>
-<%= link_to 'Back', profiles_path ,class: "btn btn-secondary btn-m" %>
-<%= link_to 'Show', @profile , class: "btn btn-secondary btn-m" %>
+
+<!--  Update Profile Button-->
+
+

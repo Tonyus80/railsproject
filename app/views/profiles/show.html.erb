@@ -1,33 +1,42 @@
 <div class="container ">
-  <div class="jumbotron ">
+  <div class="jumbotron" id="custom_jumbo">
     <div class="row">
-      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-        <%= link_to image_tag("profile-icon-0.png", :class => "img-fluid"), "/" %>
-      </div>
-      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
-        <div class="container" style="border-bottom:1px solid black">
-          <h2 style="text-align:center;">
 
-          </h2>
+        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+          <%= link_to image_tag("profile-icon-0.png", :class => "img-fluid"), "/" %>
         </div>
-        <hr>
+        <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+          <div class="container" style="border-bottom:1px solid black">
+            <h2 style="text-align:center;">
+              <h1>Your Profile</h1>
 
-        <ul class="container details">
-          <!--  email address -->
-          <li><p ><span class="fas fa-envelope " style="width:50px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></span><%= current_user.email %></p></li>
-          <!-- Address -->
-          <li><p><span class="fas fa-map-marker-alt" style="width:50px;"></span>Address : <%= @profile.address %></p></li>
-          <!-- PPS Number -->
-          <li><p><span class="far fa-id-card" style="width:50px;" title="Tools" ></span>PPS Number : <%= @profile.pps_num %></p></li>
-          <!-- Dental License id -->
-          <li><p><span class="far fa-id-badge" style="width:50px;"></span>Medical License : <%= @profile.medical_license%></p></li>
+            </h2>
+          </div>
+          <hr>
+            <!-- https://fontawesome.com/v5.15/icons/address-card?style=solid -->
 
+          <ul class="container details">
+            <!--  Email address -->
+            <li><p><span class="fas fa-at " style="width:30px;color:black;font-weight:bold"></span><%=current_user.email %></p></li>
+            <!-- Address -->
+            <li><span class="fas fa-map-marked-alt " style="width:30px;color:black;font-weight:bold"></span>Address : <%= @profile.address %></li>
+            <br>
+            <!-- PPS  -->
+            <li><span class="fas fa-id-card " style="width:30px;color:black;font-weight:bold"></span>PPS Number : <%=MyDecorator.new(@profile).capitalize_pps_num %></li>
+            <!-- Doctor Medical License M.C.R.N -->
+            <br>
+            <li><span class="fas fa-file-medical " style="width:30px;color:black;font-weight:bold"></span>Medical License : <%= @profile.medical_license%></p></li>
 
-        </ul>
-      </div>
+            <li><span class="fas fa-user-cog " style="width:30px;color:black;font-weight:bold"></span>User Status <%=MyDecorator.new(current_user).show_status %></li>
+
+          </ul>
+        </div>
     </div>
+    <br>
+
+      <%= link_to 'Edit', edit_profile_path(@profile) , class: "btn btn-secondary btn-m" %>
+      <%= link_to 'Back', profiles_path ,class: "btn btn-secondary btn-m" %>
+      <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-m" %>
   </div>
 </div>
-<%= link_to 'Edit', edit_profile_path(@profile) , class: "btn btn-secondary btn-m" %>
-<%= link_to 'Back', profiles_path ,class: "btn btn-secondary btn-m" %>
-<%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-m" %>
+

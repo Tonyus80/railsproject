@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to MediCare</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <div class="jumbotron" id="custom_jumbo">
+    <h1 class="display-4">Social Media Feed and News</h1>
+
+  </div>
+  <div class="col-lg-4 ">
+
+  </div>
+
+  <div class="custom-twitter1-jumbo">
+    <a class="twitter-timeline" data-lang="en" data-width="4500" data-height="1080" data-theme="light" data-link-color="#2B7BB9"
+       href="https://twitter.com/HSELive?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">HSE Ireland - tweets by
+      Twitter</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+
+<body>
+<!--  #Get News from NewsApi --->
+<% @getTopHeadlines.each do |article| %>
+  <!--Place 3 column with pics col 1=col-lg-4. colu 2 = col-md-6. Column 3= col-sm-12 Source: bootstrap/grids--->
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="card" style="width: 23rem; height: 620px; padding: 20px;">
+      <img class="card-img-top" style="width: 330px; height: 300px;" src=<%= article.urlToImage %>>
+      <div class="card-body">
+        <h5 class="card-title"><%= article.title %></h5>
+        <p class="card-text"> <%= article.description %> </p>
+        <a href="<%= article.url %>" class="btn btn-primary"> Find out More... </a>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+
+

@@ -1,12 +1,18 @@
+require('profano')
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
 
   #before_action :require_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
+  #Profano.loadProfanoList(Rails.root.join('lib/profano/ita-eng-bad-words-list.csv'))
+  Profano.loadProfanoList(Rails.root.join('lib/ita-eng-bad-words-list.csv'))
+
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    #@articles = Article.all
+    #@articles = Article.paginate(page: params[:page])
+    @articles = Article.paginate(page: params[:page], per_page: 5)
 
     # Add Search
     if params[:search]
@@ -71,15 +77,15 @@ class ArticlesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def article_params
-      params.require(:article).permit(:title, :description)
-      #params.require(:article).permit(:title, :description, :comment_id)
-    end
+  def article_params
+    params.require(:article).permit(:title, :description)
+    #params.require(:article).permit(:title, :description, :comment_id)
+  end
 
   def require_same_user
     if current_user != @article.user && !current_user.admin?

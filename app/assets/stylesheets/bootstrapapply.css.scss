@@ -1,12 +1,86 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "font-awesome";
 @import "rails_bootstrap_forms";
 @import "bootstrap";
 
-#login_jumbo,  #signup_jumbo {
-  margin-top: 3em;
-  margin-left: 7em;
-  margin-right: 7em;
+
+//Comment Button Size
+.block {
+  display: block;
+  width: 30%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-btn-outline-dark-btn-lg-custom{
+  margin-right: 1em;
+
+}
+
+#login_jumbo,  #custom_jumbo {
+  margin-top: 7em;
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.custom-twitter-jumbo{
+
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: 1em;
+  margin-left: 1em;
+  border-top: 3px solid #eaeaea;
+
+}
+
+.custom-twitter1-jumbo{
+
+
+
+  padding-right: 0.75rem;
+
+
+}
+
+.custom-twitter2-jumbo{
+
+
+  margin-right: 91em;
+  margin-left: 81em;
+
+
+}
+
+
+.justify-content-md-center {
+  justify-content: center !important;
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+.justify-content-center {
+  justify-content: center !important;
 }
 
 

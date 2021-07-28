@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_18_190135) do
+ActiveRecord::Schema.define(version: 2021_07_27_232128) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2021_07_18_190135) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
-    t.string "created_by"
     t.integer "article_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -47,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_190135) do
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.string "surname"
-    t.integer "gender"
+    t.string "gender"
     t.integer "date_of_birth"
     t.string "address"
     t.string "pps"

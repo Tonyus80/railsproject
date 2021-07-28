@@ -1,58 +1,21 @@
-<%= form_with(model: patient) do |form| %>
-  <% if patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+<!--  Generated using Simple form gem -->
 
-      <ul>
-        <% patient.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@patient) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :surname %>
+    <%= f.input :gender, :collection => %w[M F] %>
+    <%= f.input :date_of_birth, :label => "Age" %>
+    <%= f.input :address %>
+    <%= f.input :pps, :label => "PPS" %>
+    <%= f.input :medical_card, :collection => %w[YES NO] %>
   </div>
 
-  <div class="field">
-    <%= form.label :surname %>
-    <%= form.text_field :surname %>
-  </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.number_field :gender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.number_field :date_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pps %>
-    <%= form.text_field :pps %>
-  </div>
-
-  <div class="field">
-    <%= form.label :medical_card %>
-    <%= form.text_field :medical_card %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div style="display: flex; float: left;">
+    <%= f.button :submit , class: "btn btn-success btn-m" %>
   </div>
 <% end %>
-

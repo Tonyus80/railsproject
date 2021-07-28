@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/Tonyus80/profano.git
+  revision: a73f5bafe8cf1f791ce9996cb4fa00d1076e1f78
+  specs:
+    profano (1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,6 +78,8 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     bootstrap_form (4.5.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -104,6 +112,8 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.14.2-x64-mingw32)
+    font-awesome-rails (4.7.0.7)
+      railties (>= 3.2, < 7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.8)
@@ -163,6 +173,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails-observers (0.1.5)
+      activemodel (>= 4.0)
     railties (6.1.1)
       actionpack (= 6.1.1)
       activesupport (= 6.1.1)
@@ -189,6 +201,10 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.1)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+    spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -199,6 +215,7 @@ GEM
     sqlite3 (1.4.2)
     thor (1.1.0)
     tilt (2.0.10)
+    tokenizer (0.3.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -225,6 +242,7 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
@@ -235,25 +253,33 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   bootstrap (~> 4.3.1)
+  bootstrap-will_paginate (= 1.0.0)
   bootstrap_form (~> 4.0)
   byebug
   capybara (>= 3.26)
   coffee-rails (~> 4.2)
   devise
+  font-awesome-rails (~> 4.7, >= 4.7.0.7)
   jbuilder (~> 2.7)
   jquery-rails
   news-api
+  profano!
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
+  rails-observers
   sass-rails (>= 6)
   selenium-webdriver
+  simple_form
+  spring
   sqlite3 (~> 1.4)
+  tokenizer (~> 0.3.0)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  will_paginate (~> 3.1.5)
 
 RUBY VERSION
    ruby 2.7.2p137

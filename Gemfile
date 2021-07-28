@@ -26,18 +26,39 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-#bootstrap gem
+#
+#bootstrap gem and related
 gem 'bootstrap', '~> 4.3.1'
 
 gem "bootstrap_form", "~> 4.0"
 
 gem 'jquery-rails'
 
+#Simple form necessary for drop selection
+gem 'simple_form'
+
+##############################################
 #install medical NewsApi gem
 gem 'news-api'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+gem 'tokenizer', '~> 0.3.0'
+
+#Rehavioral patterns
+gem 'rails-observers'
+
+#fonts
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
+##pagination
+#gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'will_paginate', '~> 3.1.5'
+gem 'bootstrap-will_paginate', '1.0.0'
+
+#custom gem
+#gem 'profano'
+gem 'profano', :git => 'https://github.com/Tonyus80/profano.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +71,8 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
+
+  gem 'spring'
 end
 
 group :test do
@@ -62,3 +85,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+

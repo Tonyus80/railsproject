@@ -2,12 +2,12 @@
 
 one:
   content: MyString
-  created_by: MyString
+  #created_by: MyString
   article: one
   user: one
 
 two:
   content: MyString
-  created_by: MyString
+  #created_by: MyString
   article: two
   user: two

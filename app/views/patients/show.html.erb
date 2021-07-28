@@ -26,7 +26,7 @@
 </p>
 
 <p>
-  <strong>Pps:</strong>
+  <strong>PPS Number:</strong>
   <%= @patient.pps %>
 </p>
 
@@ -34,11 +34,11 @@
   <strong>Medical card:</strong>
   <%= @patient.medical_card %>
 </p>
-
+<!--
 <p>
   <strong>User:</strong>
-  <%= @patient.user_id %>
+  <= @patient.user_id %
 </p>
-
+-->
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

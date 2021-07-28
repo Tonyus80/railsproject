@@ -13,10 +13,23 @@ class ProfilesController < ApplicationController
   # GET /profiles or /profiles.json
   def index
     @profiles = Profile.all
+
+
   end
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    if @profile.nil?
+      redirect_to "/profiles/new"
+    else
+      #@profile = Profile.find_by_user_id(current_user.id)
+      #redirect_to "/profiles/#{@profile.id}"
+      redirect_to root_path
+
+      #@current = current_user
+      #Check Admin Status decorator
+      #@user_decorator = helpers.decorate(current_user)
+    end
   end
 
   # GET /profiles/new

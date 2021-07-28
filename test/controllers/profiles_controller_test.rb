@@ -1,13 +1,15 @@
 require "test_helper"
 
 class ProfilesControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get profiles_new_url
-    assert_response :success
+
+  setup do
+    sign_in users(:one)
+    #sign_in users(:one)
+
   end
 
   test "should get create" do
-    get profiles_create_url
+    get profiles_url
     assert_response :success
   end
 end

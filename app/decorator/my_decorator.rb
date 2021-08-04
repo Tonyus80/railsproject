@@ -21,8 +21,7 @@ class MyDecorator < SimpleDelegator
   def show_status
     "Admin status:#{admin}"
     admin
-
-    #if (!!admin)== "True"
+    #
       if (admin)== true
       #if status_admin.to_str.include? "True"
         '<li><span  class="fas fa-user-cog-margin:20px; " style = "margin:30px; color: green;font-weight:bold;font-size: 18px;">Admin Status : Yes </span ></li>'.html_safe

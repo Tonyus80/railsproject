@@ -5,8 +5,8 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use sqlite3 as the database for Active Record uncomment for local use
+#gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -57,7 +57,6 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 gem 'will_paginate', '~> 3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 
-
 #custom gem
 #gem 'profano'
 gem 'profano', :git => 'https://github.com/Tonyus80/profano.git'
@@ -73,13 +72,20 @@ group :development, :test do
 end
 
 group :development do
+  #sqlite3 need to be here in order to deploy on heroku
+  gem 'sqlite3', '~> 1.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
-
   gem 'spring'
+
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test do

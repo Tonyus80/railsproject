@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  #redirect if user does not have a profile
+  #redirect to create a progile_if user does not have a profile
   before_action :set_profile, only: %i[ show edit update destroy ]
   def signedinuserprofile profile = Profile.find_by_user_id(current_user.id)
     if profile.nil?

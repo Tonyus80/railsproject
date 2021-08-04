@@ -49,6 +49,7 @@ class MyDecorator < SimpleDelegator
   #Method tha concatenate First and last name of the doctor
   def concat_pat_name_surname
     "#{name} #{surname}"
+    #"#{name} #{surname}"
   end
 
 

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #resources :pages
   resources :news
   devise_for :users
-  #get 'landingpage/index'
+
   #namespace :landingpage do
     #get 'index'
     #get 'index/view'
@@ -19,9 +19,10 @@ Rails.application.routes.draw do
   #get 'profiles/new'
   #get 'profiles/create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  #get 'landingpage/index'
+
   root 'landingpage#index'
   get '/signedinuserprofile' => 'profiles#signedinuserprofile'
+  # #if the user has not created an account yet redirect to create account page
   get '/profiles/:id', to: 'profiles#show', as: 'profile_user'
   get 'statistics', to: 'landingpage#statistics'
   #get 'statistics/statistics'

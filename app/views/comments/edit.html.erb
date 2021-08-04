@@ -1,7 +1,9 @@
-<br>
-<h1>Editing Comment</h1>
+<div class="jumbotron" id="custom_jumbo">
+    <h1>Editing Comment</h1>
 
-<%= render 'form', comment: @comment %>
+    <%= render 'form', comment: @comment %>
 
-<%= link_to 'Show', article_comments_path(@article, @comment) %>
-<%= link_to 'Back', article_comments_path(@article) %>
+    <%= link_to 'Show', article_comments_path(@article, @comment) , class: "btn btn-info" %>
+    <%= link_to 'Back', article_comments_path(@article, @comment) , class: "btn btn-light" %>
+   <!-- %= link_to 'Back', article_comments_path(@article,) , class: "btn btn-light" %>  ORG-->
+</div>

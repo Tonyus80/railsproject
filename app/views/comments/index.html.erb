@@ -1,31 +1,26 @@
-<br>
+<div class="jumbotron" id="custom_jumbo">
 
-<h1>Comments in Article: <%= (@article.title) %></h1>
+<h4>Comments in Article: <%= (@article.title) %></h4>
 
 <!-- View article comments  -->
 <% for comment in @comments %>
   <div class="card">
     <div class="card-block">
-      <p class="card-text"> Commented By: <%= comment.user.email %> </p>
-      <p class="card-text"> <%= (comment.content) %></p>
 
+      <li><p><span class="fas fa-at " style="width:20px;color:black;font-weight:bold;font-size:14px"></span><%=(comment.content)%></p></li>
+
+      <p class="card-text" style="color:black;font-size:11px"> Commented By: <%= comment.user.email %> </p>
 
       <br>
+      <br>
+      <!-- display, Show Edit, Delete for User who wrote the comment and Admin -->
+      <% if current_user && (comment.user == current_user || current_user.admin?) %>
+<!--        Users buttons"--->
+          <%= link_to 'Show', article_comment_path(@article, comment), class: "btn btn-success" %>
 
-      <!-- display, Show Edit, Delete for User who wrote the comment -->
-      <% if current_user %>
+          <%= link_to "Edit", edit_article_comment_path(@article,comment), class: "btn btn-outline-info" %>
 
-        <button type="button" class="btn btn-outline-primary">
-          <%= link_to 'Show', article_comment_path(@article, comment)%>
-        </button>
-
-        <button type="button" class="btn btn-outline-primary" style="alignment: right">
-          <%= link_to 'Edit', edit_article_comment_path(@article, comment) %>
-        </button>
-
-        <button type="button" class="btn btn-outline-primary" style="alignment: right">
-          <%= link_to 'Delete', article_comment_path(@article, comment), data: { confirm: 'Are you sure?' } , :method => :delete %>
-        </button>
+          <%= link_to "Delete", article_comment_path(@article, comment), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
 
       <% end %>
 
@@ -33,12 +28,12 @@
   </div>
 
 <% end %>
-
-<!-- If is not the Author of the comments Display Back button -->
+<br>
+<!--  Display Back button -->
 <% if current_user || current_user.admin%>
 
-  <button type="button" class="btn btn-outline-primary" style="alignment: right">
-    <%= link_to 'Back', article_path(@article) %>
-  </button>
+    <!--%= link_to 'Back', article_path(@article) %-->
+    <%= link_to "Back", article_path(@article), class: "btn btn-outline-primary" %>
 
 <%end %>
+</div>

@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
   s.description = "Profanity filter"
   s.authors = ["Tonyus8"]
   s.email = 'x1417383@student.ncirl.ie'
-  s.homepage = ''
   s.files = ["lib/profano.rb"]
 
 end

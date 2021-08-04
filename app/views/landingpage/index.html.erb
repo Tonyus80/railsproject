@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
   <title>Welcome to MediCare</title>
   <%= csrf_meta_tags %>
-
   <br>
   <br>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,8 +15,17 @@
   window.myWidgetParam.push({id: 19,cityid: '2964574',appid: 'b8e3c67a47ab91792a2201ee53a799bd',units: 'metric',containerid: 'openweathermap-widget-19',  });
   (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
   var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
+
   <div class="jumbotron">
     <h1 class="display-4">MediCare!</h1>
+    <!--Load the Breadcrumps last session(cookee)  -->
+    <% if @breadcrumbs && @breadcrumbs.any? %>
+      <div class ='alert alert-info'>
+        <% @breadcrumbs[0..0].each do |breadcrumb| %>
+          <p>Your last recorded session :<%= link_to breadcrumb , breadcrumb %></p>
+        <% end %>
+      </div>
+    <%end%>
 
   </div>
 

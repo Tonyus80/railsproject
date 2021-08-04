@@ -1,6 +1,28 @@
-<h1>Editing Patient</h1>
+<div class="container">
+  <div class="jumbotron" id="custom_jumbo">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container" >
+          <h2 style="text-align:center;">
+            Editing Patient
+          </h2>
+        </div>
+        <hr class="graphcolor">
+        <ul class="container details">
+          <%= render 'form', patient: @patient %>
+        </ul>
+      </div>
+    </div>
+    <!--hr Create a line -->
+       <hr class="graphcolor">
 
-<%= render 'form', patient: @patient %>
 
-<%= link_to 'Show', @patient %> |
-<%= link_to 'Back', patients_path %>
+
+    <%= link_to 'Back', patients_path, class: "btn btn-outline-primary" %>
+    <%= link_to 'Show', @patient , class: "btn btn-outline-info" %>
+
+
+
+  </div>
+</div>
+

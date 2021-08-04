@@ -44,6 +44,7 @@ gem 'news-api'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# NPL gem
 gem 'tokenizer', '~> 0.3.0'
 
 #Rehavioral patterns
@@ -56,9 +57,15 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 gem 'will_paginate', '~> 3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+
 #custom gem
 #gem 'profano'
 gem 'profano', :git => 'https://github.com/Tonyus80/profano.git'
+
+#Display charts
+gem "chartkick"
+#Display charts by group
+gem 'groupdate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

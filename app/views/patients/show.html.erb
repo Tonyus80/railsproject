@@ -1,44 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="container ">
+  <!-- container contents go here souce: https://www.pair.com/support/kb/understanding-bootstraps-grid-system/ -->
+  <div class="jumbotron" id="custom_jumbo">
+    <div class="row">
+      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <%= image_tag("patient_icon.png", :class => "img-fluid")  %>
+      </div>
+      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container" style="border-bottom:1px solid black">
+          <h2 style="text-align:center;">
+            <h1>Patient Details</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @patient.name %>
-</p>
+          </h2>
+        </div>
+        <hr>
+        <!-- https://fontawesome.com/v5.15/icons/address-card?style=solid -->
 
-<p>
-  <strong>Surname:</strong>
-  <%= @patient.surname %>
-</p>
+        <ul class="container details">
+          <!--  Patient detail -->
+          <li><p><span class="fas fa-file-signature " style="width:30px;color:black;font-weight:bold;font-size: medium"></span>Name : <%=@patient.name_surname %></p></li>
+          <li><p><span class="fas fa-venus-mars" style="width:30px;color:black;font-weight:bold"></span>Gender : <%=@patient.gender %></p></li>
+          <li><p><span class="fas fa-birthday-cake" style="width:30px;color:black;font-weight:bold"></span>Age: <%=@patient.age %></p></li>
+          <!-- Address -->
+          <li><span class="fas fa-map-marked-alt " style="width:30px;color:black;font-weight:bold"></span>Address : <%= @patient.address %></li>
+          <br>
+          <!-- PPS  -->
+          <li><span class="fas fa-id-card " style="width:30px;color:black;font-weight:bold"></span>PPS Number : <%=MyDecorator.new(@patient).capitalize_pat_pps_num %></li>
+          <!-- Patient Medical Card -->
+          <br>
+          <li><span class="fas fa-clinic-medical" style="width:30px;color:black;font-weight:bold"></span>Medical Card : <%= @patient.medical_card%></p></li>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @patient.gender %>
-</p>
+        </ul>
+      </div>
+    </div>
+    <br>
 
-<p>
-  <strong>Date of birth:</strong>
-  <%= @patient.date_of_birth %>
-</p>
+    <%= link_to 'Edit', edit_patient_path(@patient) , class: "btn btn-outline-info" %>
+    <%= link_to 'Back', patients_path ,class: "btn btn-outline-primary" %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @patient.address %>
-</p>
+  </div>
+</div>
 
-<p>
-  <strong>PPS Number:</strong>
-  <%= @patient.pps %>
-</p>
-
-<p>
-  <strong>Medical card:</strong>
-  <%= @patient.medical_card %>
-</p>
-<!--
-<p>
-  <strong>User:</strong>
-  <= @patient.user_id %
-</p>
--->
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>

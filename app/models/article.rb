@@ -5,17 +5,20 @@ class Article < ApplicationRecord
   has_many :comments
   ##Validation
   validates :title, presence: true, length: { minimum: 3, maximum: 100 }
-  validates :description, presence: true, length: { minimum: 5, maximum: 500 }
+  validates :description, presence: true, length: { minimum: 5, maximum: 1000 }
 
-  # Search Methods, compares value in search to values of Title and Description
+  # Search Methods, show all article "if " empty
   def self.search(search)
-    if search
-
-      where(["Title LIKE ?", "% #{search}%"])
-      where(["Description LIKE ?", "% #{search}%"])
+    if search.empty? then
+      Article.all
 
     else
-      all
+      #Article.where(["description LIKE ?", "% #{search.strip.downcase}%"])
+      #Article.where(["title LIKE ?", "% #{search}%"])
+      Article.where(["title LIKE ?", "% #{search.strip.downcase}%"])
+      #Article.where(["description LIKE ?", "% #{search}%"])
+      #Article.where(["description LIKE ?", "% #{search.strip.downcase}%"])
+      #
     end
   end
 

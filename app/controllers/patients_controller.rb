@@ -1,13 +1,26 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: %i[ show edit update destroy ]
+  #test
+  before_action :authenticate_user!
 
   # GET /patients or /patients.json
   def index
     @patients = Patient.all
+
+    # Add Search
+    if params[:search]
+      @patients = Patient.search(params[:search])
+
+      # search_pat = params[:search_pat]
+      # @patients = search_pat ? Patient.search(search_pat) : Patient.all
+    end
+
   end
 
   # GET /patients/1 or /patients/1.json
   def show
+    #Test
+    @patients = Patient.find(params[:id])
   end
 
   # GET /patients/new
@@ -22,6 +35,8 @@ class PatientsController < ApplicationController
   # POST /patients or /patients.json
   def create
     @patient = Patient.new(patient_params)
+    #allow the currebt user to creation of the patient
+    @patient.user = current_user
 
     respond_to do |format|
       if @patient.save
@@ -64,6 +79,6 @@ class PatientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def patient_params
-      params.require(:patient).permit(:name, :surname, :gender, :date_of_birth, :address, :pps, :medical_card)
+      params.require(:patient).permit(:name_surname, :gender, :age, :address, :pps, :medical_card)
     end
 end

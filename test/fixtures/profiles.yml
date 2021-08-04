@@ -1,17 +1,27 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+#profile_one:
 one:
-  firstname: MyString12
-  lastname: MyString
-  address: MyString
-  medical_license: 1
-  pps_num: MyString
+  firstname: Billy
+  lastname: Mayer
+  address: 123 Dorset
+  medical_license: 165
+  pps_num: MyPPs34
   user: one
 
+#profile_two:
 two:
-  firstname: MyString12
-  lastname: MyString
-  address: MyString
-  medical_license: 1
-  pps_num: MyString
+  firstname: George
+  lastname: Doen
+  address: 44 Test street
+  medical_license: 2345
+  pps_num: MyString45
   user: two
+
+three:
+  firstname: Jeorge
+  lastname: Den
+  address: 44 Test street
+  medical_license: 2345
+  pps_num: MyString45
+  user: three

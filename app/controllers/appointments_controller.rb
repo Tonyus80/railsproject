@@ -3,7 +3,9 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    #@appointments = Appointment.all #ORG
+    # current user can see only his own appointments
+    @appointments = current_user.appointments.all
   end
 
   # GET /appointments/1 or /appointments/1.json
@@ -22,6 +24,9 @@ class AppointmentsController < ApplicationController
   # POST /appointments or /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
+    #Test fixing appointment
+
+    @appointment.user = current_user
 
     respond_to do |format|
       if @appointment.save

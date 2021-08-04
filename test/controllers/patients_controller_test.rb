@@ -2,6 +2,8 @@ require "test_helper"
 
 class PatientsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
+    sign_in @user
     @patient = patients(:one)
   end
 
@@ -17,7 +19,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create patient" do
     assert_difference('Patient.count') do
-      post patients_url, params: { patient: { address: @patient.address, date_of_birth: @patient.date_of_birth, gender: @patient.gender, medical_card: @patient.medical_card, name: @patient.name, pps: @patient.pps, surname: @patient.surname, user_id: @patient.user_id } }
+      post patients_url, params: { patient: { address: @patient.address, age: @patient.age, gender: @patient.gender, medical_card: @patient.medical_card, name_surname: @patient.name_surname, pps: @patient.pps, user_id: @patient.user_id } }
     end
 
     assert_redirected_to patient_url(Patient.last)
@@ -34,7 +36,8 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update patient" do
-    patch patient_url(@patient), params: { patient: { address: @patient.address, date_of_birth: @patient.date_of_birth, gender: @patient.gender, medical_card: @patient.medical_card, name: @patient.name, pps: @patient.pps, surname: @patient.surname, user_id: @patient.user_id } }
+    patch patient_url(@patient), params: { patient: { address: @patient.address, age: @patient.age, gender: @patient.gender, medical_card: @patient.medical_card, name_surname: @patient.name_surname, pps: @patient.pps, user_id: @patient.user_id  } }
+
     assert_redirected_to patient_url(@patient)
   end
 

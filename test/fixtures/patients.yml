@@ -1,21 +1,28 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  surname: MyString
-  gender: 1
-  date_of_birth: 1
-  address: MyString
-  pps: MyString
-  medical_card: MyString
+  name_surname: tony
+  gender: M
+  age: 35
+  address: red road 174
+  pps: WD346YF8
+  medical_card: MyString77
   user: one
 
 two:
-  name: MyString
-  surname: MyString
-  gender: 1
-  date_of_birth: 1
-  address: MyString
-  pps: MyString
-  medical_card: MyString
+  name_surname: Jane
+  gender: F
+  age: 34
+  address: 123 MyString road
+  pps: M3dS3546Q
+  medical_card: MyStringew
   user: two
+
+three:
+  name_surname: Gena
+  gender: F
+  age: 34
+  address: 123 MyString road
+  pps: M3dS8956Q
+  medical_card: MyStringew
+  user: three

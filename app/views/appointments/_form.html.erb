@@ -8,7 +8,10 @@
     <%= f.input :date %>
     <%= f.input :comment  %>
     <%= f.input :visited, :collection => %w[Yes No] %>
-    <%= f.input :patient, :collection => Patient.where(:user => current_user.id) %>
+    <!-- Associate the patient to the current user-->
+
+    <%= f.association :patient, label_method: :name_surname, :collection => Patient.where(:user => current_user.id) %>
+    <!--= f.input :patient, :collection => Patient.where(:user => current_user.id) cause ERROR `block in create' -->
     <!-- This syntax wont work anymore with Simple_form
     %= f.input :patient, :name, Patient.all.order(:name,), :name, :name, {:include_blank => false}, {:class => 'form-control'} %>
         -->

@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   root 'landingpage#index'
   get '/signedinuserprofile' => 'profiles#signedinuserprofile'
   get '/profiles/:id', to: 'profiles#show', as: 'profile_user'
+  get 'statistics', to: 'landingpage#statistics'
+  #get 'statistics/statistics'
   #post 'login', to: 'sessions#create'
 
 

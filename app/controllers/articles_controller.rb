@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   #before_action :require_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
-  #Profano.loadProfanoList(Rails.root.join('lib/profano/ita-eng-bad-words-list.csv'))
+  #Load a custom list of profane words
   Profano.loadProfanoList(Rails.root.join('lib/ita-eng-bad-words-list.csv'))
 
   # GET /articles or /articles.json
@@ -87,9 +87,12 @@ class ArticlesController < ApplicationController
     #params.require(:article).permit(:title, :description, :comment_id)
   end
 
+  #an user cannot delete other user article
   def require_same_user
     if current_user != @article.user && !current_user.admin?
+      #redirect_to @article, alert: "You can only edit or delete your own article"
       flash[:alert] = "You can only edit or delete your own article"
+
       redirect_to @article
     end
   end

@@ -1,6 +1,23 @@
-<h1>Editing Appointment</h1>
+<div class="container">
+  <div class="jumbotron" id="custom_jumbo">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container" >
+          <h2 style="text-align:center;">
+            Editing Appointment
+          </h2>
+        </div>
+        <hr class="graphcolor">
+        <ul class="container details">
+          <%= render 'form', appointment: @appointment %>
+        </ul>
+      </div>
+    </div>
+    <!--hr Create a line -->
+    <hr class="graphcolor">
 
-<%= render 'form', appointment: @appointment %>
+    <%= link_to 'Back', appointments_path, class: "btn btn-outline-primary" %>
+    <%= link_to 'Show', @appointment , class: "btn btn-outline-info" %>
 
-<%= link_to 'Show', @appointment %> |
-<%= link_to 'Back', appointments_path %>
+  </div>
+</div>

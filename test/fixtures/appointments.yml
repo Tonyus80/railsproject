@@ -1,15 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2021-07-15 02:51:21
-  comment: MyText
-  visited: false
+  date: 2021-08-15 02:51:21
+  comment: MyText23heloo
+  visited: yes
   user: one
   patient: one
 
 two:
-  date: 2021-07-15 02:51:21
-  comment: MyText
-  visited: false
+  date: 2021-09-15 02:51:21
+  comment: MyTextciao
+  visited: no
   user: two
   patient: two
+
+three:
+  date: 2021-10-15 02:51:21
+  comment: Googxtciao
+  visited: yes
+  user: three
+  patient: three

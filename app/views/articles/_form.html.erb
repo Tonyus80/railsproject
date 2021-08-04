@@ -34,14 +34,13 @@
 
           <!-- Button Create article Change button color text-dark-->
           <div class="form-group-row-custom">
-            <%= fun.submit class: "btn-btn-outline-dark-btn-lg-custom" %>
+            <%= fun.submit class: "btn btn-outline-primary", style: "alignment: right" %>
+            <%= link_to "Cancel", articles_path,  class: "btn btn-outline-dark", style: "alignment: right" %>
+
           </div>
         <% end %>
         </div>
-        <!-- Button Cancel and return to articles -->
-        <div class="mb-3">
-          <%= link_to '[ Cancel and return to articles ]', articles_path, class: "text-info" %>
-        </div>
+
       <% end %>
       </div>
 </div>

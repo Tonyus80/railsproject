@@ -19,12 +19,13 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    #if the user has not created an account yet redirect to create account page
     if @profile.nil?
       redirect_to "/profiles/new"
     else
       #@profile = Profile.find_by_user_id(current_user.id)
       #redirect_to "/profiles/#{@profile.id}"
-      redirect_to root_path
+      #redirect_to "/profiles/show"
 
       #@current = current_user
       #Check Admin Status decorator
@@ -37,8 +38,10 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
     puts current_user.id
     respond_to do |format|
-      format.html # new.html.erb format.json { render json: @profile } end
+      format.html  #new.html.erb
+      format.json { render json: @profile }
     end
+    #end
   end
 
   # GET /profiles/1/edit

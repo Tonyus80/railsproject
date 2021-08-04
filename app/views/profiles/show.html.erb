@@ -1,9 +1,8 @@
 <div class="container ">
   <div class="jumbotron" id="custom_jumbo">
     <div class="row">
-
         <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-          <%= link_to image_tag("profile-icon-0.png", :class => "img-fluid"), "/" %>
+          <%= image_tag("profile-icon-0.png", :class => "img-fluid")  %>
         </div>
         <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
           <div class="container" style="border-bottom:1px solid black">
@@ -26,16 +25,19 @@
             <!-- Doctor Medical License M.C.R.N -->
             <br>
             <li><span class="fas fa-file-medical " style="width:30px;color:black;font-weight:bold"></span>Medical License : <%= @profile.medical_license%></p></li>
+            <!-- Show Admin user Status-->
 
-            <li><span class="fas fa-user-cog " style="width:30px;color:black;font-weight:bold"></span>User Status <%=MyDecorator.new(current_user).show_status %></li>
+            <!-- Show Admin user Status <li><span class="fas fa-user-cog " style="width:30px;color:black;font-weight:bold"></span>User Status %=MyDecorator.new(current_user).show_status %></li> -->
+
+            <%=MyDecorator.new(current_user).show_status %>
 
           </ul>
         </div>
     </div>
     <br>
 
-      <%= link_to 'Edit', edit_profile_path(@profile) , class: "btn btn-secondary btn-m" %>
-      <%= link_to 'Back', profiles_path ,class: "btn btn-secondary btn-m" %>
+      <%= link_to 'Edit', edit_profile_path(@profile) , class: "btn btn-outline-info" %>
+      <%= link_to 'Back', profiles_path ,class: "btn btn-outline-primary" %>
       <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-m" %>
   </div>
 </div>

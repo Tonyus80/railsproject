@@ -5,10 +5,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :surname %>
+    <%= f.input :name_surname %>
     <%= f.input :gender, :collection => %w[M F] %>
-    <%= f.input :date_of_birth, :label => "Age" %>
+    <%= f.input :age, :label => "Age" %>
     <%= f.input :address %>
     <%= f.input :pps, :label => "PPS" %>
     <%= f.input :medical_card, :collection => %w[YES NO] %>

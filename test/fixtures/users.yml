@@ -6,6 +6,14 @@
 #
 one: #{}
   email: tony@email.com
+
+  #encrypted_password: ewq34fgh
 #
-two: {}
-# column: value
+two: #{}
+  email: usertwo@email.com
+  #encrypted_password: saw97kjh
+
+three: #{}
+  email: userthree@email.com
+  admin: true
+  #encrypted_password: saw56kjh

@@ -1,92 +1,75 @@
-<br>
-<h2 class="text-center mt-4"><%= @article.title %></h2>
-
+<div class="jumbotron" id="custom_jumbo">
 <div class="container">
+
   <div class="row justify-content-md-center">
+
     <div class="col-8 mt-4">
+      <h1 class="text-center mt-4">Article with comments:</h1>
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header font-italic">
+          <!-- display Display the Author in the Header -->
           by <%= @article.user.email if @article.user %>
         </div>
-        <h5 class="center"><strong>Description: </strong></h5>
 
         <div class="card-body">
+          <h4 class="text-success mt-4"><%= @article.title %></h4>
+          <h6 class="center"><strong>Description: </strong></h6>
           <div class="card-text text-left"><%= simple_format(@article.description) %></div>
           <!-- display Edit, Delete for users and Admin -->
           <% @article.user == current_user || current_user.admin? %>
             <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
             <%= link_to "Delete", article_path(@article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
             <%= link_to "View All Article", articles_path, class: "btn btn-xs btn-success" %>
-
-
         </div>
-        <!-- Print the info of the user who wrote the articles -->
+        <!-- Print the info of the user who wrote the articles in the Article footer-->
         <div class="card-footer text-muted">
-          <small>Created by <%= @article.user.email%>,
+          <small>Article Posted by <%= @article.user.email%>,
             <%= time_ago_in_words(@article.created_at) %> ago,
             edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
         </div>
+        <br>
+        <br>
+        <br>
 
+        <!-- Display comment section in Article-->
+        <hr class="graphcolor">
+        <h6 class="center"><strong>Comments: </strong></h6>
+        <br>
+        <br>
+        <br>
 
-        <h5 class="center"><strong>Comments: </strong></h5>
-
-
-        <!-- View for article comments -->
+        <!-- Run a loop for each comments, Display the comments author email -->
         <% @article.comments.each do |comment| %>
+          <!--  Import the comments for Display-->
+          <h6 class="text-success" > <%= comment.content  %></h6>
           <div class="card">
             <div class="card-block">
-              <h5 class="card-text"> Commented By: <%= comment.user.email %> </h5>
+              <h6 class="card-text"> Commented By: <%= comment.user.email %> </h6>
+              <hr class="graphcolor">
 
-
-              <!-- Only display Edit, Delete for users -->
-              <% if current_user %>
-
-                <button type="button" class="btn btn-outline-primary" style="alignment: right">
-                  <%= link_to 'Edit', edit_article_comment_path(@article, comment) %>
-                </button>
-
-                <button type="button" class="btn btn-outline-primary" style="alignment: right">
-                  <%= link_to 'Delete', article_comment_path(@article, comment), data: { confirm: 'Are you sure?' } , :method => :delete %>
-                </button>
-
+              <!--Ensure that only Comment Author or an Admin can Edit, Delete for users -->
+              <% if comment.user == current_user || current_user.admin? %>
+                <%= link_to "Edit", edit_article_comment_path(@article,comment), class: "btn btn-outline-info" %>
+                <%= link_to "Delete", article_comment_path(@article, comment), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
               <%end %>
-
-
-
-
             </div>
           </div>
-
           <br>
-
         <% end %>
-
-
       </div>
+
       <!-- Display the "show comments" button for users and Admin -->
       <% if current_user || current_user.admin%>
         <!--<button type="button" class= "block" > -->
-          <button type="button" class="btn btn-outline-primary" style="alignment: left">
-          <%= link_to 'Show Comments', article_comments_path(@article) %>
-
-        </button>
+        <%= link_to "Show Comment", article_comments_path(@article), class: "btn btn-outline-info" %>
       <%end %>
-
       <!-- Display the "new comments" button for users -->
       <% if current_user %>
-        <button type="button" class="btn btn-outline-primary" style="alignment: left">
-          <%= link_to 'Add New Comment', new_article_comment_path(@article) %>
-        </button>
+        <%= link_to "Add New Comment", new_article_comment_path(@article), class: "btn btn-outline-success" %>
       <%end %>
     </div>
   </div>
-
-
-
-
-
-
-
+</div>
 </div>
 
 

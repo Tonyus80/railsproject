@@ -36,18 +36,21 @@
       <li class="nav-item active">
         <%= link_to("News", news_index_url, :class => "nav-link") %>
       </li>
-
+      <!-- Display Analytics for Admins in the NavBar -->
+      <%# if current_user.admin? %>
+<!--          <li class="nav-item active">-->
+            <%#= link_to("Analytics", statistics_path, :class => "nav-link") %>
+<!--         </li>-->
+      <%# end %>
+        <li class="nav-item active">
+          <%= link_to("Analytics", statistics_path, :class => "nav-link") %>
+        </li>
 
     </ul>
     <!-- Display user Email on the NavBar -->
     <% if current_user %>
       <h6 id = "nav-bar-user-email" style="color: white; margin-right: 20px;"> Welcome! <%= current_user.email %> </h6>
     <% end %>
-    <!--
-     <form class="form-inline my-2 my-lg-0">
-       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-       -->
        <!-- Sign Out button -->
       <li class="nav-item">
         <%= link_to "Sign out", destroy_user_session_url, method: :delete, :class => "btn btn-outline-info" %>
@@ -55,4 +58,5 @@
     </form>
   </div>
   </div>
+
 </nav>

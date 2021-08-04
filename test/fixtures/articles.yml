@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyString
+  title: Corona1
+  description: MyString123
   user: one
   #comment: one
 
 two:
-  title: MyString
-  description: MyString
+  title: Economy
+  description: well
   user: two
   #comment: two

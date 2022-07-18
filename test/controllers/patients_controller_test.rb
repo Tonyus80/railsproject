@@ -18,10 +18,10 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create patient" do
-    assert_difference('Patient.count') do
+    assert_difference('Patient.count', 1) do
+      #post patients_url, params: { patient: { address: @patient.address, age: @patient.age, gender: @patient.gender, medical_card: @patient.medical_card, name_surname: @patient.name_surname, pps: @patient.pps, user_id: @patient.user_id } }
       post patients_url, params: { patient: { address: @patient.address, age: @patient.age, gender: @patient.gender, medical_card: @patient.medical_card, name_surname: @patient.name_surname, pps: @patient.pps, user_id: @patient.user_id } }
     end
-
     assert_redirected_to patient_url(Patient.last)
   end
 

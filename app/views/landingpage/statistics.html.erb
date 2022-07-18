@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <h1 class="display-4">Analitycs!</h1>
+  <!--create Pie chart and a column chart   -->
+  <div class="container">
+    <br>
+      <div class=“row”>
+        <div class=“col-sm-4”> Patients by Gender </div>
+        <%= pie_chart Patient.group(:gender).count %>
+        <div class=“col-sm-6”> Medical Card Owner Overview </div>
+        <%=column_chart Patient.group(:medical_card).count %>
+      </div>
+    <!--Place 3 column with pics col 1=col-lg-4. colu 2 = col-md-6. Column 3= col-sm-12 Source: bootstrap/grids--->
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card" style="width: 23rem; height: 620px; padding: 20px;">
+        <h3>Patients by age</h3>
+        <%= column_chart Patient.group(:age).count %>
+        <div class="card-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

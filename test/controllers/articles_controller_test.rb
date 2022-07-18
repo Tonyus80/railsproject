@@ -7,9 +7,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     sign_in @user
     @article = articles(:one)
-
-    #sign_in users(:two)
-
   end
 
   test "should get index" do
@@ -26,7 +23,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Article.count', 1) do
       post articles_url, params: { article: { description: @article.description, title: @article.title } }
     end
-
     assert_redirected_to article_url(Article.last)
   end
 
@@ -43,13 +39,5 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   test "should update article" do
     patch article_url(@article), params: { article: { description: @article.description, title: @article.title } }
     assert_redirected_to article_url(@article)
-  end
-
-  test "should destroy article" do
-    assert_difference('Article.count', -1) do
-      delete articles_url(@article)
-    end
-
-    assert_redirected_to articles_url
   end
 end

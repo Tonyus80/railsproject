@@ -8,7 +8,7 @@ one:
   medical_license: 16545
   pps_num: MyPPs34
   user: one
-  user_id: one #Test to be deleted
+  #user_id: one #Test to be deleted
 
 #profile_two:
 two:

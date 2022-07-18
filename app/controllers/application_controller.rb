@@ -14,20 +14,21 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  #set Breadcrumbs remember last session
+  #set Breadcrumbs remember last session (ID) (Not cookies but session and encripted)
   def set_breadcrumbs
+    ### if
+    logger.info "Create breadcrumbs for user session - logging pages the user has visited" ##Added in
     if session[:breadcrumbs]
       @breadcrumbs = session[:breadcrumbs]
+      ## else create an Array
     else
       @breadcrumbs = Array.new
     end
 
     @breadcrumbs.push(request.url)
-
-    if @breadcrumbs.count > 4
+    if @breadcrumbs.count > 10
       @breadcrumbs.shift
     end
-
     session[:breadcrumbs] = @breadcrumbs
   end
 

@@ -15,10 +15,10 @@
           <h4 class="text-success mt-4"><%= @article.title %></h4>
           <h6 class="center"><strong>Description: </strong></h6>
           <div class="card-text text-left"><%= simple_format(@article.description) %></div>
-          <!-- display Edit, Delete for users and Admin -->
+          <!-- display Edit, for users and Admin -->
           <% @article.user == current_user || current_user.admin? %>
             <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
-            <%= link_to "Delete", article_path(@article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            <%#= link_to "Delete", article_path(@article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
             <%= link_to "View All Article", articles_path, class: "btn btn-xs btn-success" %>
         </div>
         <!-- Print the info of the user who wrote the articles in the Article footer-->
@@ -41,16 +41,17 @@
         <!-- Run a loop for each comments, Display the comments author email -->
         <% @article.comments.each do |comment| %>
           <!--  Import the comments for Display-->
-          <h6 class="text-success" > <%= comment.content  %></h6>
+          <p class="text-success" > <%= comment.content  %></p>
           <div class="card">
-            <div class="card-block">
-              <h6 class="card-text"> Commented By: <%= comment.user.email %> </h6>
+            <div class="card-footer text-muted">
+<!--              <h6 class="card-text"> Commented By: <%#= comment.user.email %> </h6>-->
+              <small class="card-text"> Commented By: <%= comment.user.email %> </small>
               <hr class="graphcolor">
 
-              <!--Ensure that only Comment Author or an Admin can Edit, Delete for users -->
+              <!--Ensure that only Comment Author or an Admin can Edit, for users -->
               <% if comment.user == current_user || current_user.admin? %>
                 <%= link_to "Edit", edit_article_comment_path(@article,comment), class: "btn btn-outline-info" %>
-                <%= link_to "Delete", article_comment_path(@article, comment), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                <%#= link_to "Delete", article_comment_path(@article, comment), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
               <%end %>
             </div>
           </div>

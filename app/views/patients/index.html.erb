@@ -1,57 +1,59 @@
-<br>
-<br>
-
-<!-- Search -->
-<%#= form_tag patients_path, :method => 'get' do %>
-  <%#= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-<!--  <br>-->
-  <%#= submit_tag "Search", class: "btn btn-primary" %>
-<%# end %>
 <div class="jumbotron jumbotron-fluid" id="custom_jumbo">
 
-    <div class="container">
+  <div class="container">
 
-      <h1 class="display-4">Patients</h1>
+    <h1 class="display-4">Patients</h1>
+    <!-- Search Patient-->
+    <%= form_tag patients_url, :method => 'get' do %>
 
-      <table class="table table-hover table-bordered border border-dark">
-        <thead class="table-dark">
-        <tr>
-          <th>Name</th>
-          <th>Gender</th>
-          <th>Age</th>
-          <th>Address</th>
-          <th>Pps</th>
-          <th>Medical Card</th>
-          <th colspan="3"></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <% @patients.each do |patient| %>
-          <tr>
-            <td><%= patient.name_surname %></td>
-            <td><%= patient.gender %></td>
-            <td><%= patient.age %></td>
-            <td><%= patient.address %></td>
-            <td><%= patient.pps%></td>
-            <td><%= patient.medical_card %></td>
-
-
-            <!--%= MyDecorator.new(@patient.pps).capitalize_pat_pps_num %-->
-            <!-- <td><= patient.medical_card %></td> -->
-            <!-- <td><= patient.user_id %></td>  -->
-            <td><%= link_to 'Show', patient, class: "btn btn-outline-success" %> </td>
-            <td><%= link_to 'Edit', edit_patient_path(patient), class: "btn btn-outline-info" %></td>
-            <td><%= link_to 'Destroy', patient,  class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-
+      <%= text_field_tag :name_surname, params[:name_surname], placeholder: "Search by Patient by Surname", class: "form-control" %>
       <br>
+      <%= submit_tag "Search", class: "btn btn-outline-success" %>
+    <% end %>
+    <!-- Search End-->
+    <br>
+    <br>
 
-      <%= link_to 'New Patient', new_patient_path, class:"btn btn-outline-success" %>
+    <table class="table table-hover table-bordered border border-dark">
+      <thead class="table-dark">  <!--  Change table Theme table-dark"-->
+      <tr>
+        <!--  Table Name"-->
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Pps</th>
+        <th>Medical Card</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <!--  Database Column"-->
+      <% @patients.each do |patient| %>
+        <tr>
+          <td><%= patient.name_surname %></td>
+          <td><%= patient.gender %></td>
+          <td><%= patient.age %></td>
+          <td><%= patient.address %></td>
+          <td><%= patient.pps%></td>
+          <td><%= patient.medical_card %></td>
 
 
-    </div>
+          <!--%= MyDecorator.new(@patient.pps).capitalize_pat_pps_num %-->
+          <!-- <td><= patient.medical_card %></td> -->
+          <!-- <td><= patient.user_id %></td>  -->
+          <td><%= link_to 'Show', patient, class: "btn btn-outline-success" %> </td>
+          <td><%= link_to 'Edit', edit_patient_path(patient), class: "btn btn-outline-info" %></td>
+          <td><%= link_to 'Destroy', patient,  class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Patient', new_patient_path, class:"btn btn-outline-success" %>
+
+  </div>
 </div>

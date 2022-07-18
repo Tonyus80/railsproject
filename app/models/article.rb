@@ -22,4 +22,15 @@ class Article < ApplicationRecord
     end
   end
 
+  #TEsting Observer
+  before_save :default_values
+  ###check the status if 'created'
+  enum status: [:created]
+  ##execute code if the status 'created' if true
+  def default_values
+    ###if the value is null assign 'created' value
+    self.status = 'created' if self.status.nil?
+
+  end
+
 end

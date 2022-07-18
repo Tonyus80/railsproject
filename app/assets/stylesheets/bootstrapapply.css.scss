@@ -22,10 +22,13 @@
 
 }
 
+
+
 #login_jumbo,  #custom_jumbo {
   margin-top: 7em;
   margin-left: 3em;
   margin-right: 3em;
+  box-shadow: 0 5px 1px -1px rgba(0,0,0,.2), 0 4px 1px 0 rgba(0, 0, 0, 0.14), 0 4px 3px 0 rgba(0,0,0,.12);
 }
 
 #login_jumbo,  #custom_jumbo_patient {
@@ -45,23 +48,26 @@
 }
 
 .custom-twitter1-jumbo{
-
-
-
   padding-right: 0.75rem;
-
-
 }
 
 .custom-twitter2-jumbo{
-
-
   margin-right: 91em;
   margin-left: 81em;
-
-
 }
 
+.display-4{
+ // background-color: #d1ecf1;
+  //border-color: #bce8f1;
+  //padding: 15px 28px;
+ //border-color: #bee5eb;
+  //font-family: arial, sans-serif;
+  //color: #0c5460;
+  //color: #555;
+  //#color: #000000;
+  //color: #f0f0f0;
+  //font-size: 56px;
+}
 
 .justify-content-md-center {
   justify-content: center !important;
@@ -127,6 +133,7 @@ footer a:hover {
 
 }
 
+/// Wheather API CSS Settings
 .openweathermap{
 
   border-top: 1px solid #eaeaea;

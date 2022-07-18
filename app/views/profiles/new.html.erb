@@ -1,10 +1,11 @@
 <hr class="graphcolor">
   <div class="jumbotron" id="custom_jumbo">
-
-      <h2 style= "text-align: center">Creating profile by <b><%= current_user.email.split('@')[0] %></h2><br>
+<!--    split email-->
+      <h2 style= "text-align: center">Creating profile for <b><%= current_user.email.split('@')[0] %></h2><br>
 
       <%= render 'form', profile: @profile %>
-      <%= link_to 'Back', profiles_path ,class: "btn btn-primary btn-m" %>
+      <%#= link_to 'Back', profiles_path ,class: "btn btn-primary btn-m" %>
+      <%= link_to 'Back', profiles_path ,class: "btn btn-outline-success" %>
 
   </div>
 <hr class="graphcolor">

@@ -47,7 +47,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # NPL gem
 gem 'tokenizer', '~> 0.3.0'
 
-#Rehavioral patterns
+#Behavioral patterns
 gem 'rails-observers'
 
 #fonts
@@ -94,6 +94,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'minitest'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

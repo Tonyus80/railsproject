@@ -4,59 +4,58 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <!----This code wont work it need to be  Converted Ruby code  --->
-        <!--  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>  --->
-        <!----Embedded Ruby code Converted--->
-        <%= link_to("Home", root_path , :class => "nav-link")%>
-      </li>
-      <!-- Redirect the current user to profile page -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-              <% if current_user %>
-                  <%= link_to('Profile', profiles_url(current_user), :class => "nav-link") %>
-
-              <%end %>
-          </li>
-
-      <li class="nav-item active">
-        <%= link_to("My Patients", patients_path , :class => "nav-link")%>
-      </li>
-      <li class="nav-item active">
-        <%= link_to("My Appointments", appointments_path, :class => "nav-link") %>
-      </li>
-      <!-- Display Articles on the NavBar -->
-      <li class="nav-item active">
-        <%= link_to("Articles", articles_path, :class => "nav-link") %>
-      </li>
-      <!-- Display News API on the NavBar -->
-      <li class="nav-item active">
-        <%= link_to("News", news_index_url, :class => "nav-link") %>
-      </li>
-      <!-- Display Analytics for Admins in the NavBar -->
-      <%# if current_user.admin? %>
-<!--          <li class="nav-item active">-->
-            <%#= link_to("Analytics", statistics_path, :class => "nav-link") %>
-<!--         </li>-->
-      <%# end %>
-        <li class="nav-item active">
-          <%= link_to("Analytics", statistics_path, :class => "nav-link") %>
+          <!----This code Below wont work it need to be  Converted Ruby code  --->
+          <!--  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>  --->
+          <!----Embedded Ruby code Converted--->
+          <%= link_to("Home", root_path , :class => "nav-link")%>
         </li>
+        <!-- Redirect the current user to profile page -->
+          <li class="nav-item active">
+                <% if current_user %>
+                    <%= link_to('Profile', profiles_url(current_user), :class => "nav-link") %>
 
-    </ul>
-    <!-- Display user Email on the NavBar -->
-    <% if current_user %>
-      <h6 id = "nav-bar-user-email" style="color: white; margin-right: 20px;"> Welcome! <%= current_user.email %> </h6>
-    <% end %>
-       <!-- Sign Out button -->
-      <li class="nav-item">
-        <%= link_to "Sign out", destroy_user_session_url, method: :delete, :class => "btn btn-outline-info" %>
-      </li>
-    </form>
-  </div>
+                <%end %>
+            </li>
+
+        <li class="nav-item active">
+          <%= link_to("My Patients", patients_path , :class => "nav-link")%>
+        </li>
+        <li class="nav-item active">
+          <%= link_to("My Appointments", appointments_path, :class => "nav-link") %>
+        </li>
+        <!-- Display Articles on the NavBar -->
+        <li class="nav-item active">
+          <%= link_to("Articles", articles_path, :class => "nav-link") %>
+        </li>
+        <!-- Display News API on the NavBar -->
+        <li class="nav-item active">
+          <%= link_to("News", news_index_url, :class => "nav-link") %>
+        </li>
+        <!-- Display Analytics page for Admins only in the NavBar -->
+        <%# user_signed_in? prevent Devise ERROR on Nil user[ current user] %>
+        <% if user_signed_in? && current_user.admin? %>
+           <li class="nav-item active">
+              <%= link_to("Analytics", statistics_path, :class => "nav-link") %>
+           </li>
+        <% end %>
+        <!-- Display Notification on  NavBar -->
+        <li class="nav-item active">
+          <%= link_to("Notifications", notifications_path, :class => "nav-link") %>
+        </li>
+      </ul>
+      <!-- Display user Email on the NavBar -->
+      <% if current_user %>
+        <h6 id = "nav-bar-user-email" style="color: white; margin-right: 20px;"> Welcome! <%= current_user.email %> </h6>
+      <% end %>
+         <!-- Sign Out button -->
+        <li class="nav-item">
+          <%= link_to "Sign out", destroy_user_session_url, method: :delete, :class => "btn btn-outline-info" %>
+        </li>
+      </form>
+    </div>
   </div>
 
 </nav>

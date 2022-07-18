@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_27_232128) do
+ActiveRecord::Schema.define(version: 2022_02_17_143719) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date"
@@ -24,12 +24,18 @@ ActiveRecord::Schema.define(version: 2021_07_27_232128) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
+  create_table "article_observers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -41,6 +47,13 @@ ActiveRecord::Schema.define(version: 2021_07_27_232128) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "content_notification"
+    t.boolean "seen"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -60,8 +73,8 @@ ActiveRecord::Schema.define(version: 2021_07_27_232128) do
     t.string "firstname"
     t.string "lastname"
     t.string "address"
-    t.integer "medical_license"
-    t.string "pps_num"
+    t.integer "medical_license" , unique: true
+    t.string "pps_num" , unique: true
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

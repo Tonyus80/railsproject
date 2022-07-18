@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   # GET /comments or /comments.json
   def index
-    #requre foregn key article id
+    #require foregn key article id- comment belong to Article, (Written by current_user)
     @article = Article.find(params[:article_id])
     @comments = Comment.all
     @user = current_user

@@ -3,6 +3,7 @@ require 'test_helper'
 class ProfilesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
+  #
   setup do
     #get '/users/sign_in'
     @user = users(:one)
@@ -54,7 +55,8 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
 #test
   test "should update an existing profile" do
     assert_difference('Profile.count') do
-      patch profile_url(@profile) ,params: { profile: { address: @profile.address, medical_license: @profile.medical_license, firstname: @profile.firstname, lastname: @profile.lastname, pps_num: @profile.pps_num, user_id: @profile.user_id } }
+      #patch profile_url(@profile) ,params: { profile: { address: @profile.address, medical_license: @profile.medical_license, firstname: @profile.firstname, lastname: @profile.lastname, pps_num: @profile.pps_num, user_id: @profile.user_id } }
+      patch profile_url(@profile) ,params: { profile: { firstname: @profile.firstname, lastname: @profile.lastname, address: @profile.address, medical_license: @profile.medical_license, pps_num: @profile.pps_num, user_id: @profile.user_id } }
     end
   end
 
@@ -63,7 +65,18 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
       delete profile_user_url(@profile)
     end
 
+    assert_redirected_to profiles_url
+
 
   end
+
+  # test "should destroy appointment" do
+  #   assert_difference('Appointment.count', -1) do
+  #     delete appointment_url(@appointment)
+  #   end
+  #
+  #   assert_redirected_to appointments_url
+  # end
+
 
 end

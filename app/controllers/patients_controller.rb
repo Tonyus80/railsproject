@@ -6,15 +6,12 @@ class PatientsController < ApplicationController
   # GET /patients or /patients.json
   def index
     @patients = Patient.all
+    #@patients = Patient.all.paginate(page: params[:page])
 
-    # Add Search
-    if params[:search]
-      @patients = Patient.search(params[:search])
-
-      # search_pat = params[:search_pat]
-      # @patients = search_pat ? Patient.search(search_pat) : Patient.all
+    # Add Search Patients
+    if params[:name_surname]
+      @patients = Patient.name_surname(params[:name_surname])
     end
-
   end
 
   # GET /patients/1 or /patients/1.json

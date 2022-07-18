@@ -1,9 +1,12 @@
 require('profano')
+require_relative '../../lib/subject'  #Required to initialize Observer
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
 
   #before_action :require_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update, :destroy]
+
+  before_action :initialize_subject
 
   #Load a custom list of profane words
   Profano.loadProfanoList(Rails.root.join('lib/ita-eng-bad-words-list.csv'))
@@ -11,10 +14,10 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     #@articles = Article.all
-    #@articles = Article.paginate(page: params[:page])
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.paginate(page: params[:page])
+    #@articles = Article.paginate(page: params[:page], per_page: 5)
 
-    # Add Search
+    # Add Search Article
     if params[:search]
       @articles = Article.search(params[:search])
     end
@@ -87,7 +90,7 @@ class ArticlesController < ApplicationController
     #params.require(:article).permit(:title, :description, :comment_id)
   end
 
-  #an user cannot delete other user article
+  #an user that is not an Admin cannot delete other user article
   def require_same_user
     if current_user != @article.user && !current_user.admin?
       #redirect_to @article, alert: "You can only edit or delete your own article"
@@ -95,6 +98,11 @@ class ArticlesController < ApplicationController
 
       redirect_to @article
     end
+  end
+
+  #initialize Observer library
+  def initialize_subject
+    @subject = Subject.new
   end
 
 end

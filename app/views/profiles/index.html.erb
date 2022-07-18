@@ -1,15 +1,16 @@
 <div class="jumbotron" id="custom_jumbo">
       <p id="notice"><%= notice %></p>
       <h1>Profiles</h1>
-      <table class="table table-hover table-bordered border border-dark">
-        <thead class="table-light">
+<!--      <table class="table table-hover table-bordered border border-dark">-->
+      <table class="table table-hover table-bordered table-dark">
+        <thead class="table-dark">
           <tr>
             <th>First name</th>
             <th>Last name</th>
             <th>Address</th>
             <th>Medical license</th>
             <th>Pps num</th>
-            <th colspan="3"></th>
+            <th colspan="4"></th>
           </tr>
         </thead>
 
@@ -21,20 +22,22 @@
               <td><%= profile.address %></td>
               <td><%= profile.medical_license %></td>
               <td><%= profile.pps_num %></td>
-              <td><%= link_to 'Show', profile, class: "btn btn-outline-success" %></td>
-              <td><%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-outline-info" %></td>
-              <td><%= link_to 'Destroy', profile,  class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<!--               display, Show Edit, Delete for User who wrote the comment and Admin -->
+              <% if current_user && (profile.user == current_user || current_user.admin?) %>
+                <!--        Users buttons"--->
+                <td><%= link_to 'Show', profile, class: "btn btn-outline-success" %></td>
+                <td><%= link_to "Edit", edit_profile_path(profile), class: "btn btn-outline-info" %></td>
+                <td><%= link_to "Delete", profile, class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %></td>
+                <%#= link_to "Delete", article_comment_path(@article, comment), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
       </table>
-
       <br>
-
       <!--= link_to 'New Profile-b', new_profile_path, class:"btn btn-outline-success" %>  -->
-
   <!--Display a button New Profile only if the Doctor has not created one  %>  -->
-    <% if current_user.profile.id? %>
+    <% if !user_signed_in? && current_user.profile.id? %>
         <h3> This are your Profile settings Dr <%= MyDecorator.new(@profile).split_email(current_user.email) %>!</h3>
 
    <% else %>

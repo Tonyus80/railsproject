@@ -11,6 +11,8 @@ module Railsproject
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     #config.active_record.observers = [:comment_observer]
+    config.active_record.observers = [:article_observer]
+    config.assets.initialize_on_precompile = false
 
     # Configuration for the application, engines, and railties goes here.
     #

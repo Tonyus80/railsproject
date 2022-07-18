@@ -273,6 +273,7 @@ DEPENDENCIES
   groupdate
   jbuilder (~> 2.7)
   jquery-rails
+  minitest
   news-api
   pg
   profano!

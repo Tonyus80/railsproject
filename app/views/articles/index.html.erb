@@ -1,13 +1,14 @@
 <div class="jumbotron" id="custom_jumbo">
     <h1 class="text-center mt-4">Listing all articles</h1>
       <div class="container">
-        <!-- Search -->
+        <!-- Search Articles-->
         <%= form_tag articles_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
           <br>
           <%= submit_tag "Search", class: "btn btn-primary" %>
           <%= link_to 'Add New Article', new_article_path(@article),class: "btn btn-outline-success" %>
         <% end %>
+        <!-- Search End-->
           <% @articles.each do |article| %>
             <div class="row justify-content-md-center">
               <div class="col-8 mt-4">
@@ -19,10 +20,11 @@
 
                     <p class="card-text"><%= truncate(article.description, length: 100) %></p>
                     <%= link_to "View", article_path(article), class: "btn btn-outline-success" %>
+
                     <!-- Allow Edit and Delete of the Article to Article owner and Admin, -->
                     <% if current_user && (article.user == current_user || current_user.admin?) %>
                       <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
-                      <%= link_to "Delete", article_path(article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                      <%#= link_to "Delete", article_path(article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
                     <% end %>
                   </div>
                   <!-- Print the info of the user who wrote the articles -->

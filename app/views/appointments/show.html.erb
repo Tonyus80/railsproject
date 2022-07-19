@@ -1,0 +1,46 @@
+<div class="container ">
+  <div class="jumbotron" id="custom_jumbo">
+    <div class="row">
+      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <%= image_tag("appointment-icon-3.png", :class => "img-fluid")  %>
+      </div>
+      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container" style="border-bottom:1px solid black">
+          <h2 style="text-align:center;">
+            <h1>Appointment Summary</h1>
+
+          </h2>
+        </div>
+        <hr>
+        <!-- https://fontawesome.com/v5.15/icons/address-card?style=solid -->
+
+        <ul class="container details">
+          <!--  Email address -->
+          <!-- Address -->
+          <li><span class="fas fa-clock " style="width:30px;color:black;font-weight:bold"></span>Date : <%= @appointment.date %></li>
+          <br>
+          <!-- PPS  -->
+          <li><span class="far fa-comments " style="width:30px;color:black;font-weight:bold"></span>Comment : <%=@appointment.comment %></li>
+          <!-- Doctor Medical License M.C.R.N -->
+          <br>
+          <li><span class="fas fa-file-medical " style="width:30px;color:black;font-weight:bold"></span>Visited : <%= @appointment.visited%></p></li>
+
+          <!-- Show Admin user Status-->
+          <li><span class="fas fa-id-card " style="width:30px;color:black;font-weight:bold"></span>Doctor : <%=MyDecorator.new(@appointment.user.profile).con_firstname_lastname %></li>
+          <br>
+
+          <!-- Show Admin user Status <li><span class="fas fa-user-cog " style="width:30px;color:black;font-weight:bold"></span>User Status %=MyDecorator.new(current_user).show_status %></li> -->
+
+          <li><span class="fas fa-user-injured " style="width:30px;color:black;font-weight:bold"></span>Patient : <%=@appointment.patient.name_surname %></li>
+
+
+        </ul>
+      </div>
+    </div>
+    <br>
+
+
+    <%= link_to 'Edit', edit_appointment_path(@appointment), class: "btn btn-outline-primary" %>
+    <%= link_to 'Back', appointments_path , class: "btn btn-outline-info" %>
+  </div>
+</div>

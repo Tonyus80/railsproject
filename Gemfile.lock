@@ -270,7 +270,7 @@ DEPENDENCIES
   jquery-rails
   minitest
   news-api
-  pg (~> 1.4, >= 1.4.1)
+  pg
   profano!
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

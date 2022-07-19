@@ -84,8 +84,8 @@ group :development do
 end
 
 group :production do
-  #gem 'pg'
-  gem 'pg', '~> 1.4', '>= 1.4.1'
+  gem 'pg'
+  #gem 'pg', '~> 1.4', '>= 1.4.1'
   #gem 'rails_12factor'
 end
 

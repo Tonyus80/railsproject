@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2022_02_17_143719) do
     t.string "firstname"
     t.string "lastname"
     t.string "address"
-    t.integer "medical_license" , unique: true
-    t.string "pps_num" , unique: true
+    t.integer "medical_license"
+    t.string "pps_num"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -6,7 +6,7 @@
     <!-- Search Patient-->
     <%= form_tag patients_url, :method => 'get' do %>
 
-      <%= text_field_tag :name_surname, params[:name_surname], placeholder: "Search by Patient by Surname", class: "form-control" %>
+      <%= text_field_tag :name_surname, params[:name_surname], placeholder: "Search by Patient Surname", class: "form-control" %>
       <br>
       <%= submit_tag "Search", class: "btn btn-outline-success" %>
     <% end %>

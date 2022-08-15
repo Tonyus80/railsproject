@@ -13,12 +13,9 @@ class Article < ApplicationRecord
       Article.all
 
     else
-      #Article.where(["description LIKE ?", "% #{search.strip.downcase}%"])
-      #Article.where(["title LIKE ?", "% #{search}%"])
-      Article.where(["title LIKE ?", "% #{search.strip.downcase}%"])
-      #Article.where(["description LIKE ?", "% #{search}%"])
-      #Article.where(["description LIKE ?", "% #{search.strip.downcase}%"])
-      #
+      #Article.where('title LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%")## SQLite's for local use
+      #Article.where("title::text LIKE ?", "%#{search}%")## PostgreSQL version
+      Article.where("LOWER(title) LIKE ? OR LOWER(description) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
     end
   end
 

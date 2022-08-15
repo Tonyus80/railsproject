@@ -26,9 +26,7 @@ class MyDecorator < SimpleDelegator
       #if status_admin.to_str.include? "True"
         '<li><span  class="fas fa-user-cog-margin:20px; " style = "margin:30px; color: green;font-weight:bold;font-size: 18px;">Admin Status : Yes </span ></li>'.html_safe
       else
-
         '<li><span  class="fas fa-user-cog-margin:20px; " style = "margin:30px; color: red;font-weight:bold;font-size: 18px;">Admin Status : No </span ></li>'.html_safe
-
       end
 
   end
@@ -37,7 +35,7 @@ class MyDecorator < SimpleDelegator
   def split_email(email)
 
     #email.split(/\s|,/)
-    email.split('@')[0] ## First value will be the unique identifier of each user
+    email.split('@')[0] ## First value "0" will be the unique identifier of each user
   end
 
   #Method tha concatenate First and last name of the doctor

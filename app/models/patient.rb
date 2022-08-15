@@ -15,7 +15,8 @@ class Patient < ApplicationRecord
   def self.name_surname(search)
   #def self.pps(search)
     if !search.empty? then
-      @patients = Patient.where(["name_surname LIKE ?", "% #{search.strip.downcase}%"])
+      #@patients = Patient.where(["name_surname LIKE ?", "% #{search.strip.downcase}%"]) SQL local version
+      @patients = Patient.where("name_surname::text LIKE ?", "%#{search}%")## PostgreSQL version
     else
       Patient.all
       #@patients = Patient.all
